@@ -1,4 +1,4 @@
-# 📊 Proyecto Sprint 12 - Optimización de Recuperación de Oro
+# 📊 Optimización de Recuperación de Oro
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://www.python.org/)
 [![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green?logo=pandas)](https://pandas.pydata.org/)
