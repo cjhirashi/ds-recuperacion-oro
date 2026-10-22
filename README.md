@@ -241,5 +241,5 @@ Esto implica una degradación notable de desempeño (+4.68 pp) entre validación
 ## 👨‍💻 Autor
 
 **Carlos Jiménez Hirashi**
-💼 Data Scientist Jr. | Python & Machine Learning
+💼 Data Scientist & Intelligent Automation Architect
 📧 [cjhirashi@gmail.com](mailto:cjhirashi@gmail.com) · 🌐 [LinkedIn](https://www.linkedin.com/in/cjhirashi)
