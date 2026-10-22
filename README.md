@@ -159,22 +159,22 @@ Tras un análisis riguroso que incluyó:
 * **Análisis exploratorio**: estudio de concentraciones de metales (Au, Ag, Pb), comparación de distribuciones entre train y test, y detección de anomalías en concentraciones totales.
 * **Construcción del modelo**: implementación de la métrica **sMAPE ponderada** (25% rougher, 75% final), entrenamiento de múltiples algoritmos y evaluación comparativa.
 
-Se determinó que el modelo **Gradient Boosting** presentó el mejor desempeño:
+Se determinó que el modelo **Random Forest** presentó el mejor desempeño:
 
-* **Validación (CV):** sMAPE Total = 8.29%
-* **Prueba (TEST):** sMAPE Total = 10.13%
+* **Validación (CV):** sMAPE Total = 7.00%
+* **Prueba (TEST):** sMAPE Total = 11.68%
 
-Esto implica una degradación moderada de desempeño (+1.84 pp), lo cual confirma que el modelo **generaliza adecuadamente** en datos no vistos.
+Esto implica una degradación notable de desempeño (+4.68 pp) entre validación y prueba, lo cual señala cierto sobreajuste del modelo a los datos de entrenamiento/validación.
 
 **Conclusiones clave:**
 
-* El modelo es **robusto y apto** para recomendaciones iniciales en la optimización del proceso de recuperación de oro.
+* El modelo es **funcional pero mejorable**: el salto entre validación y prueba sugiere que no generaliza con la misma solidez que indicaba la validación cruzada.
 * La métrica sMAPE ponderada permitió priorizar la etapa de recuperación final, alineándose con las necesidades del negocio.
-* Se identificaron algunas limitaciones: pérdida de ~560 registros en el conjunto de prueba por valores faltantes en los objetivos, y posible *feature drift* entre train/test.
+* Se identificaron algunas limitaciones: pérdida de ~560 registros en el conjunto de prueba por valores faltantes en los objetivos, y posible *feature drift* entre train/test, que probablemente explica parte de esa degradación.
 
 **Recomendaciones futuras:**
 
-1. Ajustar hiperparámetros de Gradient Boosting (learning rate, profundidad, n_estimators).
+1. Ajustar hiperparámetros de Random Forest (profundidad máxima, n_estimators, min_samples_leaf) para reducir el sobreajuste observado.
 2. Implementar validación temporal (TimeSeriesSplit) para reflejar mejor la naturaleza secuencial de los datos.
 3. Analizar causas de exclusión de filas en test y considerar estrategias de imputación.
 4. Evaluar la estabilidad de las variables más influyentes en la predicción.
