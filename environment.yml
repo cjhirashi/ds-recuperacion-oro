@@ -1,4 +1,4 @@
-name: sprint12-gold-recovery
+name: gold-recovery
 channels:
   - conda-forge
   - defaults

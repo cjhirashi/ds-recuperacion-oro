@@ -186,13 +186,13 @@ Esto implica una degradación notable de desempeño (+4.68 pp) entre validación
 1. **Clonar repositorio**
 
    ```bash
-   git clone https://github.com/cjhirashi/proyecto-sprint-12.git
+   git clone https://github.com/cjhirashi/ds-recuperacion-oro.git
    ```
 
 2. **Acceder a carpeta del proyecto**
 
    ```bash
-   cd proyecto-sprint-12
+   cd ds-recuperacion-oro
    ```
 
 3. **Crear entorno con Conda**
@@ -204,7 +204,7 @@ Esto implica una degradación notable de desempeño (+4.68 pp) entre validación
 4. **Activar el entorno ya creado**
 
    ```bash
-   conda activate sprint12-gold-recovery
+   conda activate gold-recovery
    ```
 
 5. **Ejecutar Notebook**
@@ -220,14 +220,14 @@ Esto implica una degradación notable de desempeño (+4.68 pp) entre validación
 * **Eliminar entorno**:
 
   ```bash
-  conda env remove -n sprint12-gold-recovery
+  conda env remove -n gold-recovery
   ```
 
 * **Recrear entorno**:
 
   ```bash
   conda env create -f environment.yml
-  conda activate sprint12-gold-recovery
+  conda activate gold-recovery
   ```
 
 * **Desactivar entorno**:
