@@ -28,8 +28,3 @@ dependencies:
   # Development and utilities
   - pip=23.2.*
   - tqdm=4.66.*
-  
-  # Additional pip packages if needed
-  - pip:
-    - optuna>=3.4.0  # For hyperparameter optimization if needed
-    - shap>=0.43.0   # For model explainability if needed

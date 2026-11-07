@@ -164,18 +164,18 @@ Se determinó que el modelo **Random Forest** presentó el mejor desempeño:
 * **Validación (CV):** sMAPE Total = 7.00%
 * **Prueba (TEST):** sMAPE Total = 11.68%
 
-Esto implica una degradación notable de desempeño (+4.68 pp) entre validación y prueba, lo cual señala cierto sobreajuste del modelo a los datos de entrenamiento/validación.
+Esto implica una degradación notable de desempeño (+4.68 pp) entre validación y prueba. Una referencia ingenua (predecir siempre la media del entrenamiento) obtiene 10.98% en prueba, de modo que el modelo no la supera. La prueba es en su mayoría (75%) del cuarto trimestre, una época que el entrenamiento no contiene, y la validación cruzada aleatoria no mide ese cambio de época: la brecha se explica sobre todo por eso y no solo por sobreajuste (Sección 4.4 del notebook).
 
 **Conclusiones clave:**
 
-* El modelo es **funcional pero mejorable**: el salto entre validación y prueba sugiere que no generaliza con la misma solidez que indicaba la validación cruzada.
+* El modelo es **funcional pero mejorable**: en una época del año que no vio al entrenar no mejora a una referencia ingenua, así que la validación cruzada aleatoria sobreestima su desempeño.
 * La métrica sMAPE ponderada permitió priorizar la etapa de recuperación final, alineándose con las necesidades del negocio.
 * Se identificaron algunas limitaciones: pérdida de ~560 registros en el conjunto de prueba por valores faltantes en los objetivos, y posible *feature drift* entre train/test, que probablemente explica parte de esa degradación.
 
 **Recomendaciones futuras:**
 
-1. Ajustar hiperparámetros de Random Forest (profundidad máxima, n_estimators, min_samples_leaf) para reducir el sobreajuste observado.
-2. Implementar validación temporal (TimeSeriesSplit) para reflejar mejor la naturaleza secuencial de los datos.
+1. Validar por periodo (por trimestre o con particiones temporales) y entrenar con datos de todas las épocas del año.
+2. Ajustar hiperparámetros de Random Forest (profundidad máxima, n_estimators, min_samples_leaf) una vez resuelta la validación.
 3. Analizar causas de exclusión de filas en test y considerar estrategias de imputación.
 4. Evaluar la estabilidad de las variables más influyentes en la predicción.
 
